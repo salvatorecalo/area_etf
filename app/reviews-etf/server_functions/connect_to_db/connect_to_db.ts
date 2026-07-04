@@ -38,7 +38,7 @@ async function connectToDb() : Promise<Connection> {
     */
    if (!client.promise) {
         console.log("Initializing database connection...")
-        client.promise = mongoose.connect(MONGODB_URI)
+        client.promise = mongoose.connect(MONGODB_URI+ "reviews?appName=politoAppunti")
    }
 
    try {

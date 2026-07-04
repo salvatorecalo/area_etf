@@ -6,7 +6,7 @@ import Link from "next/link"
 export function SectionCard({course}: {course: ICourse}) {
     return (
         <article key={course._id.toString()} className={styles.sectionCard}>
-            <h3 className={styles.courseName}>{course.name}</h3>
+            <h3 className={styles.courseName}>{course.name.charAt(0).toUpperCase() + course.name.substring(1)}</h3>
             {
                 course.lang === "it" ? 
                     <Image src="/it_flag.svg" alt="bandiera italiana" width="30" height="30" />

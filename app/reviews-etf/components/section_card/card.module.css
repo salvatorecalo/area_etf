@@ -16,7 +16,7 @@
 }
 
 .courseName {
-  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  font-size: clamp(1.1rem, 1vw, 1.5rem) !important;
   text-align: center;
   margin: 0;
   line-height: 1.3;

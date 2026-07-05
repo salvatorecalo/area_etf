@@ -8,8 +8,13 @@ export default async function Home() {
   return (
     <div className={style.page}>
       <SearchPanel with_text={true} />
-      <Link href="/reviews-etf/bachelor-courses">Elettronica triennale</Link>
-      <Link href="/reviews-etf/master-courses">Elettronica magistrale</Link>
+      <Link href="/reviews-etf/bachelor-courses" className={style.link}>
+          Elettronica Triennale
+      </Link>
+        
+      <Link href="/reviews-etf/master-courses" className={style.link}>
+          Elettronica Magistrale
+      </Link>
     </div>
   );
 }

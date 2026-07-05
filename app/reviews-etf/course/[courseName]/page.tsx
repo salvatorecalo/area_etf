@@ -31,7 +31,7 @@ export default async function CoursePage({ params }: PageProps) {
                 {
                     courseResults.map((courseResult) => {
                         return (
-                            <Link key={courseResult._id} href={`/reviews-etf/course/${courseResult.name}`} style={{ border: "1px solid #000000", padding: "10px", borderRadius: "8px", width: "50%", textAlign: "center" }}>
+                            <Link key={courseResult._id} href={`/reviews-etf/course/${courseResult.name}`} className="link">
                                 <article>
                                     <h3>{courseResult.name}</h3>
                                 </article>
@@ -57,7 +57,7 @@ export default async function CoursePage({ params }: PageProps) {
                     {
                         similarResults.map((similarResult) => {
                             return (
-                                <Link key={similarResult._id} href={`/reviews-etf/course/${similarResult.name}`} style={{ border: "1px solid #000000", padding: "10px", borderRadius: "8px", width: "50%", textAlign: "center" }}>
+                                <Link key={similarResult._id} href={`/reviews-etf/course/${similarResult.name}`} className="link">
                                     <article>
                                         <h3>{similarResult.name}</h3>
                                     </article>

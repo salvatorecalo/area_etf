@@ -1,0 +1,93 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    color: var(--foreground);
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    position: sticky;
+    top: 20px;
+    z-index: 10;
+    background: var(--background);
+    padding: 1rem;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(150, 150, 150, 0.2);
+    margin-bottom: 4rem;
+}
+
+.navLink {
+    text-decoration: none;
+    color: var(--foreground);
+    font-weight: 600;
+    padding: 0.6rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid transparent;
+}
+
+.navLink:hover {
+    background-color: var(--foreground);
+    color: var(--background);
+    transform: translateY(-2px);
+}
+
+.yearSection {
+    margin-bottom: 5rem;
+    scroll-margin-top: 120px; 
+}
+
+.yearTitle {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid rgba(150, 150, 150, 0.2);
+    padding-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.courseCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: var(--background);
+    border: 1px solid var(--foreground);
+    border-radius: 20px;
+    text-decoration: none;
+    color: var(--foreground);
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.courseCard::after {
+    content: '→';
+    font-size: 1.5rem;
+    opacity: 0;
+    transform: translateX(-15px);
+    transition: all 0.3s ease;
+}
+
+.courseCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    background-color: var(--foreground);
+    color: var(--background);
+}
+
+.courseCard:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}

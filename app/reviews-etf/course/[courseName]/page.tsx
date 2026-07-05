@@ -31,7 +31,7 @@ export default async function CoursePage({ params }: PageProps) {
                 {
                     courseResults.map((courseResult) => {
                         return (
-                            <Link key={courseResult._id} href={`/reviews-etf/course/${courseResult.name}`} className="link">
+                            <Link key={courseResult._id.toString()} href={`/reviews-etf/course/${courseResult.name}`} className="link">
                                 <article>
                                     <h3>{courseResult.name}</h3>
                                 </article>

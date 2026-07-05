@@ -20,7 +20,7 @@ export default async function BachelorCourses(){
                     {
                         bachelorCourses && bachelorCourses.filter((course) => course.year === "primoAnno").map(
                             (course) => (
-                                <Link href={`/reviews-etf/course/${course.name}`} key={course._id} className={styles.courseCard}>
+                                <Link href={`/reviews-etf/course/${course.name}`} key={course._id.toString()} className={styles.courseCard}>
                                     {course.name}
                                 </Link>
                             )
@@ -35,7 +35,7 @@ export default async function BachelorCourses(){
                     {
                         bachelorCourses && bachelorCourses.filter((course) => course.year === "secondoAnno").map(
                             (course) => (
-                                <Link href={`/reviews-etf/course/${course.name}`} key={course._id} className={styles.courseCard}>
+                                <Link href={`/reviews-etf/course/${course.name}`} key={course._id.toString()} className={styles.courseCard}>
                                     {course.name}
                                 </Link>
                             )
@@ -50,7 +50,7 @@ export default async function BachelorCourses(){
                     {
                         bachelorCourses && bachelorCourses.filter((course) => course.year === "terzoAnno").map(
                             (course) => (
-                                <Link href={`/reviews-etf/course/${course.name}`} key={course._id} className={styles.courseCard}>
+                                <Link href={`/reviews-etf/course/${course.name}`} key={course._id.toString()} className={styles.courseCard}>
                                     {course.name}
                                 </Link>
                             )

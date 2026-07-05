@@ -30,6 +30,7 @@ export default function RootLayout({
       <body>
         <Navbar />
         {children}
+        <p style={{textAlign: "center"}}>WARNING: this website is not the official one of Politecnico di Torino and is not even affiliated with it, everything you can find here is mantaied by volounteers.</p>
         <Footer />
       </body>
     </html>

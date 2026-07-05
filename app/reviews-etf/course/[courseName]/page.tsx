@@ -4,13 +4,14 @@ import Image from "next/image"
 import { SearchPanel } from "@/app/reviews-etf/components/SearchPanel/SearchPanel"
 import searchSimilarByName from "../../server_functions/search_similar_by_name/search_similar_by_name"
 import Link from "next/link"
+import { searchForCodeCourse } from "../../server_functions/search_for_code_course/search_for_code_course"
 
 interface PageProps {
     params: Promise<{ courseName: string }>
 }
 export default async function CoursePage({ params }: PageProps) {
     const { courseName } = await params
-    const decodedName = decodeURIComponent(courseName)
+    let decodedName = decodeURIComponent(courseName)
 
     if (decodedName == "run polito") {
         return (
@@ -19,18 +20,44 @@ export default async function CoursePage({ params }: PageProps) {
             </div>
         )
     }
+
+    const courseResults = await searchForCodeCourse(decodedName)
+    console.log(courseResults)
+    if (courseResults.length > 1) {
+        return (
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "50vh", flexDirection: "column", gap: "1rem" }}>
+                <SearchPanel with_text={false} />
+                <h2 style={{ color: "var(--foreground)", opacity: 0.7 }}>Corsi simili per codice</h2>
+                {
+                    courseResults.map((courseResult) => {
+                        return (
+                            <Link key={courseResult._id} href={`/reviews-etf/course/${courseResult.name}`} style={{ border: "1px solid #000000", padding: "10px", borderRadius: "8px", width: "50%", textAlign: "center" }}>
+                                <article>
+                                    <h3>{courseResult.name}</h3>
+                                </article>
+                            </Link>
+                        )
+                    })
+                }
+            </div>
+        )
+    } else if (courseResults.length === 1) {
+        decodedName = courseResults[0].name
+    }
+
+
     const data = await searchProAndCons(decodedName)
     if (!data) {
         const similarResults = await searchSimilarByName(decodedName)
         if (similarResults.length > 0) {
             return (
-                <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "50vh", flexDirection: "column", gap: "1rem"}}>
+                <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "50vh", flexDirection: "column", gap: "1rem" }}>
                     <SearchPanel with_text={false} />
                     <h2 style={{ color: "var(--foreground)", opacity: 0.7 }}>Corsi simili</h2>
                     {
                         similarResults.map((similarResult) => {
                             return (
-                                <Link key={similarResult._id} href={`/reviews-etf/course/${similarResult.name}`} style={{border: "1px solid #000000", padding: "10px", borderRadius: "8px", width: "50%", textAlign: "center"}}>
+                                <Link key={similarResult._id} href={`/reviews-etf/course/${similarResult.name}`} style={{ border: "1px solid #000000", padding: "10px", borderRadius: "8px", width: "50%", textAlign: "center" }}>
                                     <article>
                                         <h3>{similarResult.name}</h3>
                                     </article>
@@ -41,6 +68,7 @@ export default async function CoursePage({ params }: PageProps) {
                 </div>
             )
         }
+
         return (
             <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "50vh", flexDirection: "column" }}>
                 <SearchPanel with_text={false} />
@@ -48,6 +76,7 @@ export default async function CoursePage({ params }: PageProps) {
             </div>
         )
     }
+
 
     return (
         <main className="course-page-container">

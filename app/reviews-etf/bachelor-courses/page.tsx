@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import Link from "next/link";
 import { getSectionData } from "../server_functions/get_section_data/get_section_data";
 import styles from './bachelor-courses.module.css'

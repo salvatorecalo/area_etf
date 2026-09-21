@@ -14,6 +14,8 @@ export async function getSectionData(courseType: courseType) : Promise<ICourse[]
             ...result,
             _id: result._id.toString()
         }))
+
+        console.log(cleanResults)
         return cleanResults as unknown as ICourse[]
     } catch (error) {
         console.log(error)

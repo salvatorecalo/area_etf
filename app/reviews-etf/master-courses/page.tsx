@@ -43,22 +43,6 @@ export default async function BachelorCourses(){
                     }
                 </div>
             </div>
-
-            <div id="tabellaD" className={styles.yearSection}>
-                <h2 className={styles.yearTitle}>Terzo anno</h2>
-                <div className={styles.grid}>
-                    {
-                        bachelorCourses && bachelorCourses.filter((course) => course.year === "terzoAnno").map(
-                            (course) => (
-                                <Link href={`/reviews-etf/course/${course.name}`} key={course._id.toString()} className={styles.courseCard}>
-                                    {course.name}
-                                </Link>
-                            )
-                        )
-                    }
-                </div>
-            </div>
-
         </section>
     )
 }

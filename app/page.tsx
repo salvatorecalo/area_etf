@@ -20,6 +20,12 @@ const projects = [
     href: "/orient-etf",
     accentClass: styles.accentTeal,
   },
+  {
+    title: "Area Etf",
+    description: "Scopri i gruppi dell'area etf.",
+    href: "/gruppi",
+    accentClass: styles.accentTeal,
+  },
 ];
 
 export default function Home() {

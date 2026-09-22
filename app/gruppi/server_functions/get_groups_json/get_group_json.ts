@@ -90,7 +90,7 @@ export default function GetGroupJson() {
                 "Fisica": [
                     {
                         "nome": "MAIN GROUP",
-                        "url": null
+                        "url": "https://t.me/IngFisica_polito"
                     },
                     {
                         "nome": "Dispositivi elettronici",
